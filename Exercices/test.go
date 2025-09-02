@@ -1,15 +1,13 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
-	var a string = "waiter"
-	fmt.Println("Veuillez entrer : ")
-	fmt.Scanln(&a)
-	fmt.Println(a)
-	fmt.Print("Bonjuuuuuuuuuuuuur\n")
-	fmt.Print("Plage")
-	var 
+	chaineAvecEmojis := "Bonjour 😊"
+	compteurRunes := 0
+	for range chaineAvecEmojis {
+		compteurRunes++
+	}
+
+	fmt.Printf("La chaîne \"%s\" contient %d caractères (runes) [9].\n", chaineAvecEmojis, compteurRunes)
 }
