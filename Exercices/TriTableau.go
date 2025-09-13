@@ -2,33 +2,46 @@ package main
 
 import (
 	"fmt"
+	"strconv"
 )
 
 func main() {
-	const taille = 6
-	tab1 := [taille]int64{0, 0, 0, 0, 0, 0}
-	tab2 := [taille]int64{0, 0, 0, 0, 0, 0}
+	var num int
+	var err error
+	var tab1 []int
+	//var tab2 []int
+	var max int = 0
 
-	fmt.Println("Veuillez entrer les valeurs de votre tableau : ")
-	for i := 0; i < taille; i++ {
-		fmt.Scanln(&tab1[i])
-	}
+	fmt.Println("Veuillez entrer les valeurs de votre tableau et entrer k pour achever la lecture du tableau : ")
+	input := "dir"
 
-	var temp int64
-	var max int64 = tab1[0]
-	var i_temp int
-	//trouver la valeur max du tab1
+	for {
 
-	for i := 0; i < taille; i++ {
+		fmt.Scanln(&input)
+		num, err = strconv.Atoi(input) // Conversion de la chaîne en entier
 
-		if tab1[i] > max {
-			max = tab1[i]
+		// Vérification de l'erreur
+
+		if err != nil {
+
+			break
+		}
+		tab1 = append(tab1, num)
+
+		//trouver la valeur max du tab1
+		if num > max {
+			max = num
 		}
 
 	}
+	//test pour vérifier si le bloc de code pour gérer les entrées utilisateur fonctionne bien
+	/*fmt.Println("Le maximum est", max)
+	fmt.Println("Valeurs entrées : ", tab1)
+	//var temp int
+	//var i_temp int
 
 	//compare chaque valeur du tableau 1 à toutes les autres pour déterminer la plus petite
-	for j := 0; j < taille; j++ {
+	/*for j := 0; j < taille; j++ {
 		temp = tab1[j]
 		i_temp = j
 		for i := 0; i < taille; i++ {
@@ -50,5 +63,5 @@ func main() {
 		} else {
 			fmt.Print(".")
 		}
-	}
+	}*/
 }
