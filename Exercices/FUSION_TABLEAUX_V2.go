@@ -14,20 +14,39 @@ func main() {
 	fmt.Printf("Veuillez entrer les valeurs du tableau 1 de taille %d trié en ordre croissant (Ex: x; x;...) : \n", taille1)
 	tab1, is_sorted := Entree_tab(taille1)
 
-	/*if is_sorted == false {
-		fmt.Print("Ce tableau n'est pas trié. Veuillez entrer T pour le trier : ")
-		ans := "tree"
-		fmt.Scanln(&ans)
-	}*/
+	for is_sorted == false {
+		fmt.Println("Ce tableau n'est pas trié.")
+		fmt.Print("Veuillez entrer A pour le trier automatiquement et B pour réécrire le tableau trié vous même : ")
+		ans := "B"
+		fmt.Scan(&ans)
 
-	if is_sorted == false {
-		tab1 = Sort(tab1, taille1)
+		if ans == "A" {
+			tab1 = Sort(tab1, taille1)
+			break
+		}
+		if ans == "B" {
+			fmt.Println("Veuillez entrer à nouveau les éléments du tableau 1 : ")
+			tab1, is_sorted = Entree_tab(taille1)
+		}
 	}
 
 	fmt.Printf("Veuillez entrer les valeurs du tableau 2 de taille %d trié en ordre croissant (Ex: x; x;...) : \n", taille2)
 	tab2, is_sorted := Entree_tab(taille2)
-	if is_sorted == false {
-		tab2 = Sort(tab2, taille2)
+	for is_sorted == false {
+		fmt.Println("Ce tableau n'est pas trié.")
+		fmt.Print("Veuillez entrer A pour le trier automatiquement et B pour réécrire le tableau trié vous même : ")
+		ans := "B"
+		fmt.Scan(&ans)
+
+		if ans == "A" {
+			tab2 = Sort(tab2, taille2)
+			break
+		}
+
+		if ans == "B" {
+			fmt.Println("Veuillez entrer à nouveau les éléments du tableau 2 : ")
+			tab2, is_sorted = Entree_tab(taille2)
+		}
 	}
 
 	//Fusion des tableaux triés 1 et 2
