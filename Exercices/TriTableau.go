@@ -9,12 +9,12 @@ func main() {
 	var num int
 	var err error
 	var tab1 []int
-	//var tab2 []int
+
 	var max int = 0
 
 	fmt.Println("Veuillez entrer les valeurs de votre tableau et entrer k pour achever la lecture du tableau : ")
 	input := "dir"
-
+	taille := 0
 	for {
 
 		fmt.Scanln(&input)
@@ -26,22 +26,26 @@ func main() {
 
 			break
 		}
-		tab1 = append(tab1, num)
-
+		tab1 = append(tab1, num) //ajoute num au tableau
+		taille++
 		//trouver la valeur max du tab1
 		if num > max {
 			max = num
 		}
 
 	}
+
 	//test pour vérifier si le bloc de code pour gérer les entrées utilisateur fonctionne bien
 	/*fmt.Println("Le maximum est", max)
 	fmt.Println("Valeurs entrées : ", tab1)
 	//var temp int
-	//var i_temp int
+	//var i_temp int*/
 
 	//compare chaque valeur du tableau 1 à toutes les autres pour déterminer la plus petite
-	/*for j := 0; j < taille; j++ {
+	temp := 0
+	i_temp := 0
+	tab2 := make([]int, taille)
+	for j := 0; j < taille; j++ {
 		temp = tab1[j]
 		i_temp = j
 		for i := 0; i < taille; i++ {
@@ -55,13 +59,6 @@ func main() {
 		tab2[j] = temp
 		tab1[i_temp] = max
 	}
-	fmt.Print("Les valeurs de votre tableau sont en ordre croissant : ")
-	for i := 0; i < taille; i++ {
-		fmt.Print(tab2[i])
-		if i < (taille - 1) {
-			fmt.Print(", ")
-		} else {
-			fmt.Print(".")
-		}
-	}*/
+	fmt.Printf("Les valeurs de votre tableau sont en ordre croissant : %d", tab2)
+
 }
